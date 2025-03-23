@@ -26,7 +26,7 @@ why： 增强动态语言的可读性
 Python库，用于数据验证和序列化，通过利用 Python 的类型注解来定义数据模型并自动验证输入数据是否符合预期，已经系列化。
 why: 通过类型注解实现声明式数据验证和序列化。
 
-- OOP： 应用ABC lib 实现OOP Abstract类/继承/多态
+- OOP： 应用ABC+pydantic， OOP Abstract类/继承/多态
 
 - Web Scraping & Search: Utilizes libraries like BeautifulSoup, requests, and search engine specific packages (baidusearch, duckduckgo_search, googlesearch).
   处理web文件下载解析
@@ -36,8 +36,3 @@ why: 通过类型注解实现声明式数据验证和序列化。
 - Browser-use： 用browser-use开源 agent来处理浏览器的自动化交互
 why： 利用开源Agent简化开发
 
-- Logging: Uses loguru for advanced logging capabilities.
-
-- File Operations: Uses aiofiles for asynchronous file operations and pathlib for path management.
-
-- Tool Management: Implements a complex tool system with base classes and collections for managing various operations.
