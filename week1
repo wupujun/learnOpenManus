@@ -1,0 +1,33 @@
+# 整体流程
+
+
+main（） 
+--> asyncio.run # 启动主线程 event loop
+--> 获取 prompt，await agent.run
+
+##Agent 继承关系
+
+Manus Agent <--- BrowserAgent <--- ToolCallAgent <-- ReActAgent <--BaseAgent  
+
+BaseAgent 继承 pydantic BaseModel + ABC
+实现了以下属性/接口/方法： 
+name/description
+
+system_prompt
+next_step_prompt
+
+依赖的模块： 
+llm - wrapper of external LLM model, 处理与配置的模型的交互，重要方法： ask， ask_with_images, ask_tool, token_count...
+max_steps/curent_step 
+memory - 存放输入的prompt信息
+state - 状态： idle, running, finished, error
+
+重要的方法： 
+1. async def run(...) 
+---> check status --> update moemory --> 启动 async loop： for each steps in steps, call self.step() 
+2. async def step 需要子类override的方法
+3. is_stuck 检查是否陷入stuck
+4. handle stuck - Handle stuck state by adding a prompt to change strategy 需要进一步的研究。。。
+
+
+
